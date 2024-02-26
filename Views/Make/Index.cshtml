@@ -1,0 +1,32 @@
+﻿@model List<Make>
+
+<h1> Make List </h1>
+
+
+<div class="pt-2 pb-2">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Make Name</th>
+                <th>Make Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var eachMake in Model)
+            {
+                <tr>
+                    <td>@eachMake.Name</td>
+                    <td>@eachMake.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <div class="col-6">
+    </div>
+    <div class="col-6">
+        <a asp-controller="Make" asp-action="Create" class="btn btn-primary">Add New Make</a>
+    </div>
+</div>

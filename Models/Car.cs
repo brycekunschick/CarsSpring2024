@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CarsSpring2024.Models
@@ -7,7 +8,7 @@ namespace CarsSpring2024.Models
     {
         [Key]
         public int CarId { get; set; }
-
+        [DisplayName("Car Model")]
         public string Model { get; set; }
 
         public decimal Price { get; set; }

@@ -17,6 +17,11 @@
                 <tr>
                     <td>@eachMake.Name</td>
                     <td>@eachMake.Description</td>
+
+                    <td>
+                        <a asp-controller="Make" asp-action="Edit" asp-route-id="@eachMake.MakeId">Edit</a> |
+                        <a asp-controller="Make" asp-action="Delete" asp-route-id="@eachMake.MakeId">Delete</a>
+                    </td>
                 </tr>
             }
         </tbody>

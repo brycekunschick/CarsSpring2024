@@ -32,6 +32,20 @@ namespace CarsSpring2024.Controllers
 
         public IActionResult Create(Make makeObj)
         {
+            //custom validation 1
+            if (makeObj.Name != null && makeObj.Name.ToLower() == "test")
+            {
+                ModelState.AddModelError("Name", "Make name cannot be 'test'");
+            }
+
+            //custom validation to make sure that name and description values are not exactly the same
+            if (makeObj.Name == makeObj.Description)
+            {
+                ModelState.AddModelError("Description", "Make name and description cannot be the same");
+            }
+
+
+
             if (ModelState.IsValid)
             {
                 _dbContext.Makes.Add(makeObj);
@@ -54,7 +68,7 @@ namespace CarsSpring2024.Controllers
 
         [HttpPost]
 
-        public IActionResult Edit(int id, [Bind("MakeID, Name, Description")] Make makeObj)
+        public IActionResult Edit(int id, [Bind("MakeId, Name, Description")] Make makeObj)
         {
             if (ModelState.IsValid)
             {
@@ -65,6 +79,26 @@ namespace CarsSpring2024.Controllers
             }
 
             return View(makeObj);
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            Make make = _dbContext.Makes.Find(id);
+
+            return View(make);
+        }
+
+        [HttpPost]
+        [ActionName("Delete")]
+        public IActionResult DeletePOST(int id)
+        {
+            Make makeObj = _dbContext.Makes.Find(id);
+
+            _dbContext.Makes.Remove(makeObj);
+            _dbContext.SaveChanges();
+
+            return RedirectToAction("Index", "Make");
         }
     }
 }

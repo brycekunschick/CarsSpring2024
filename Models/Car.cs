@@ -15,6 +15,6 @@ namespace CarsSpring2024.Models
 
         public int MakeId { get; set; }
         [ForeignKey("MakeId")]
-        public Make Make { get; set; } //navigational property
+        public Make? Make { get; set; } //navigational property
     }
 }

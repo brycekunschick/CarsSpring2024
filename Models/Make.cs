@@ -11,7 +11,6 @@ namespace CarsSpring2024.Models
         public string Name { get; set; }
         [DisplayName("Make Description: ")]
         [Required(ErrorMessage = "The make description MUST be provided")]
-        [MaxLength(30, ErrorMessage = "Description cannot exceed 20 characters")]
         public string Description { get; set; }
     }
 }

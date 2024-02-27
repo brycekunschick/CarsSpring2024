@@ -1,0 +1,26 @@
+﻿@model Make
+
+<h1>Make Details</h1>
+
+<div class="border col-md-10">
+    <form>
+
+        <input type="hidden" asp-for="MakeId" />
+
+        <div class="form-group m-4">
+            <label asp-for="Name" class="control-label"></label>
+            <input asp-for="Name" disabled class="form-control" />
+        </div>
+
+        <div class="form-group m-4">
+            <label asp-for="Description" class="control-label"></label>
+            <input asp-for="Description" disabled class="form-control" />
+        </div>
+
+        <div class="form-group m-4">
+            <a asp-controller="Make" asp-action="Index" class="btn btn-primary">Back to List of Makes</a>
+        </div>
+
+    </form>
+
+</div>

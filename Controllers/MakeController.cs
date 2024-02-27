@@ -100,5 +100,13 @@ namespace CarsSpring2024.Controllers
 
             return RedirectToAction("Index", "Make");
         }
+
+        [HttpGet]
+        public IActionResult Details(int id)
+        {
+            Make makeObj = _dbContext.Makes.Find(id); //fetches the record
+
+            return View(makeObj);
+        }
     }
 }
